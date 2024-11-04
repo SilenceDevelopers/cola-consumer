@@ -1,0 +1,39 @@
+# #seata配置
+# seata:
+#   enabled: true
+#   application-id: ${spring.application.name}
+#   # 事务分组名
+#   tx-service-group: default_tx_group
+#   # 事务分组映射
+#   service:
+#     vgroupMapping:
+#       default_tx_group: "default"
+#   use-jdk-proxy: true
+#   enable-auto-data-source-proxy: true
+#   config:
+#     type: nacos
+#     nacos:
+#       server-addr: ${spring.cloud.nacos.server-addr}
+#       namespace: seata
+#       group: SEATA_GROUP
+#       dataId: "seataServer.properties"
+
+
+#数据源公共配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # Druid StatViewServlet配置
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      stat-view-servlet:
+        # 默认true 内置监控页面首页/druid/index.html
+        enabled: true
+        url-pattern: /druid/*
+        # 允许清空统计数据
+        reset-enable: true
+        # IP白名单 多个逗号分隔
+        allow:
+        # IP黑名单
+        deny:
+
